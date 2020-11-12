@@ -12,7 +12,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     var blog = Blog(string: "http://ninecirclesofshell.com/get-service.php")
     var articles = [Article]()
-
+    @IBOutlet var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,5 +45,18 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         return cell
      }
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "articleSegue" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let article = articles[indexPath.row]
+
+                // Assign stuff to the view this segue is going to
+                let articleView = segue.destination as! ArticleViewController
+                articleView.article = article
+            }
+        }
+    }
 }
 
