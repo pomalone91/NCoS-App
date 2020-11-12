@@ -18,7 +18,6 @@ class ArticleViewController: UIViewController {
         self.navigationItem.title = article?.title
         
         if let contents = article?.contents {
-            
             if let articleView = try? DownView(frame: self.view.bounds, markdownString: contents, openLinksInBrowser: true, templateBundle: nil, writableBundle: false, configuration: nil, options: .default, didLoadSuccessfully: nil) {//DownView(frame: self.view.bounds, markdownString: contents) {
                 self.view.addSubview(articleView)
             }
