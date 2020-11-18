@@ -38,12 +38,12 @@ struct LaunchHandler {
         let fm = FileManager.default
         
         if !fm.fileExists(atPath: destination.path) {
-            print("Writing DownView.bundle")
+//            print("Writing DownView.bundle")
             try! fm.copyItem(at: bundleURL, to: destination)
         }
         
         let contents = try! fm.contentsOfDirectory(at: destination, includingPropertiesForKeys: nil, options: .includesDirectoriesPostOrder)
-        print("----------printing document contents----------")
+//        print("----------printing document contents----------")
         print(contents)
         
         // Write a new "images" folder in doc directory

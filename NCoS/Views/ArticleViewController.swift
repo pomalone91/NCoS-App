@@ -16,9 +16,15 @@ class ArticleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = article?.title
+        article?.downloadImages()
+        
+        guard let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+        let bundlePath = documents.appendingPathComponent("DownView.bundle")
+        
+        guard let bundle = Bundle(url: bundlePath) else{ return }
         
         if let contents = article?.contents {
-            if let articleView = try? DownView(frame: self.view.bounds, markdownString: contents, openLinksInBrowser: true, templateBundle: nil, writableBundle: false, configuration: nil, options: .default, didLoadSuccessfully: nil) {//DownView(frame: self.view.bounds, markdownString: contents) {
+            if let articleView = try? DownView(frame: self.view.bounds, markdownString: contents, openLinksInBrowser: true, templateBundle: bundle, writableBundle: true, configuration: nil, options: .default, didLoadSuccessfully: nil) {//DownView(frame: self.view.bounds, markdownString: contents) {
                 self.view.addSubview(articleView)
             }
         }

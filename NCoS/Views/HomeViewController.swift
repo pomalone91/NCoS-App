@@ -26,9 +26,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Fetch articles for blog
         articles = blog.articles
         
-        for article in articles {
-            print(article.title)
-        }
+//        for article in articles {
+//            print(article.title)
+//        }
     }
     
     // MARK: - Data Source functions
