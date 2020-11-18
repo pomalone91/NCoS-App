@@ -10,7 +10,7 @@ import UIKit
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    var blog = Blog(string: "http://ninecirclesofshell.com/get-service.php")
+    var blog = Blog(string: "http://ninecirclesofshell.com/api/get-service.php")
     var articles = [Article]()
     @IBOutlet var tableView: UITableView!
     

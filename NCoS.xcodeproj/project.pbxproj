@@ -10,6 +10,9 @@
 		2514B8C5255DBB9C009924C0 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2514B8C4255DBB9C009924C0 /* ArticleViewController.swift */; };
 		2514B94F255DEC80009924C0 /* Down in Frameworks */ = {isa = PBXBuildFile; productRef = 2514B94E255DEC80009924C0 /* Down */; };
 		2514B951255DF7F6009924C0 /* DownView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2514B950255DF7F6009924C0 /* DownView.bundle */; };
+		2514B953255E264B009924C0 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2514B952255E264B009924C0 /* AboutViewController.swift */; };
+		2551BA3D2561EE51005AFDCF /* JsonHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2551BA3C2561EE51005AFDCF /* JsonHandler.swift */; };
+		2551BA3F256454EA005AFDCF /* LaunchHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2551BA3E256454EA005AFDCF /* LaunchHandler.swift */; };
 		256BE66A255CC1880015180B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256BE669255CC1880015180B /* AppDelegate.swift */; };
 		256BE66C255CC1880015180B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256BE66B255CC1880015180B /* SceneDelegate.swift */; };
 		256BE66E255CC1880015180B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256BE66D255CC1880015180B /* HomeViewController.swift */; };
@@ -24,6 +27,9 @@
 /* Begin PBXFileReference section */
 		2514B8C4255DBB9C009924C0 /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
 		2514B950255DF7F6009924C0 /* DownView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DownView.bundle; sourceTree = "<group>"; };
+		2514B952255E264B009924C0 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		2551BA3C2561EE51005AFDCF /* JsonHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonHandler.swift; sourceTree = "<group>"; };
+		2551BA3E256454EA005AFDCF /* LaunchHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchHandler.swift; sourceTree = "<group>"; };
 		256BE666255CC1880015180B /* NCoS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NCoS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		256BE669255CC1880015180B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		256BE66B255CC1880015180B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +102,7 @@
 				256BE66D255CC1880015180B /* HomeViewController.swift */,
 				256BE688255D96630015180B /* HomeTableViewCell.swift */,
 				2514B8C4255DBB9C009924C0 /* ArticleViewController.swift */,
+				2514B952255E264B009924C0 /* AboutViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -104,6 +111,8 @@
 			isa = PBXGroup;
 			children = (
 				256BE67D255CD2AB0015180B /* Blog */,
+				2551BA3C2561EE51005AFDCF /* JsonHandler.swift */,
+				2551BA3E256454EA005AFDCF /* LaunchHandler.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -187,11 +196,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				256BE67F255CD2CB0015180B /* Article.swift in Sources */,
+				2551BA3D2561EE51005AFDCF /* JsonHandler.swift in Sources */,
 				256BE66E255CC1880015180B /* HomeViewController.swift in Sources */,
+				2551BA3F256454EA005AFDCF /* LaunchHandler.swift in Sources */,
 				2514B8C5255DBB9C009924C0 /* ArticleViewController.swift in Sources */,
 				256BE681255CD2D70015180B /* Blog.swift in Sources */,
 				256BE66A255CC1880015180B /* AppDelegate.swift in Sources */,
 				256BE689255D96630015180B /* HomeTableViewCell.swift in Sources */,
+				2514B953255E264B009924C0 /* AboutViewController.swift in Sources */,
 				256BE66C255CC1880015180B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
