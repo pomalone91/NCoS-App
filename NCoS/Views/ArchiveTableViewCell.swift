@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeTableViewCell: UITableViewCell {
+class ArchiveTableViewCell: UITableViewCell {
 
     @IBOutlet var title: UILabel!
     

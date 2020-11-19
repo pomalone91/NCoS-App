@@ -7,6 +7,22 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--HomeViewController-->
+        <scene sceneID="bUQ-eP-F9j">
+            <objects>
+                <viewController id="uLC-m5-x3f" userLabel="HomeViewController" customClass="HomeViewController" customModule="NCoS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2nn-zj-Kay">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="3aV-eA-i3o"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="XLA-x7-sO6"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PfE-pJ-6Nb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-113" y="732"/>
+        </scene>
         <!--AboutView Controller-->
         <scene sceneID="Zga-6b-iGD">
             <objects>
@@ -37,10 +53,10 @@
             </objects>
             <point key="canvasLocation" x="805.79710144927537" y="77.678571428571431"/>
         </scene>
-        <!--Item-->
+        <!--Archive-->
         <scene sceneID="7g8-px-D9R">
             <objects>
-                <navigationController id="9nI-vt-Ve3" sceneMemberID="viewController">
+                <navigationController id="9nI-vt-Ve3" userLabel="Archive" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="fZS-1f-vd9"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="z2J-uz-7td">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -54,10 +70,10 @@
             </objects>
             <point key="canvasLocation" x="806" y="-590"/>
         </scene>
-        <!--HomeViewController-->
+        <!--ArchiveViewController-->
         <scene sceneID="fwh-WG-TaV">
             <objects>
-                <viewController id="xBw-7b-loe" userLabel="HomeViewController" customClass="HomeViewController" customModule="NCoS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="xBw-7b-loe" userLabel="ArchiveViewController" customClass="ArchiveViewController" customModule="NCoS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yG8-fg-NXz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -67,7 +83,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="articleCell" id="oJf-N8-b1m" customClass="HomeTableViewCell" customModule="NCoS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="articleCell" id="oJf-N8-b1m" customClass="ArchiveTableViewCell" customModule="NCoS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oJf-N8-b1m" id="cQo-ph-2xn">
@@ -136,6 +152,7 @@
                     <connections>
                         <segue destination="9nI-vt-Ve3" kind="relationship" relationship="viewControllers" id="7iy-Qp-Qia"/>
                         <segue destination="8Tf-zh-yCf" kind="relationship" relationship="viewControllers" id="7im-a9-2MZ"/>
+                        <segue destination="uLC-m5-x3f" kind="relationship" relationship="viewControllers" id="05W-4V-ciI"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b66-H0-xKy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
