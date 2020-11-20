@@ -11,7 +11,8 @@ import UIKit
 /**
  Structure that describes an article object
  */
-struct Article: Equatable, Codable {
+struct Article: Equatable, Comparable, Codable {
+    
     // Fields and default values
     var id = ""
     var title = ""
@@ -49,7 +50,11 @@ struct Article: Equatable, Codable {
         return false
     }
     
-    // MARK: TODO make this comparable for sorting and stuff
+    // MARK: Comparable
+    static func < (lhs: Article, rhs: Article) -> Bool {
+        return lhs.pubDate < rhs.pubDate
+    }
+    
 }
 // MARK: - Private Helper Functions
 extension Article {
