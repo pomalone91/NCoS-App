@@ -8,12 +8,19 @@
 
 import UIKit
 
+/**
+ This will be the primary view for the tab controller. This will show the five most recently published articles. I think I can add a stack view and then programatically add downViews for each article
+ */
 class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // Create a vertical stackView
+        
+        // Get blog and articles
+        
+        // Get the top 5
     }
     
 
