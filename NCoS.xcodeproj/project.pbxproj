@@ -11,6 +11,7 @@
 		2514B94F255DEC80009924C0 /* Down in Frameworks */ = {isa = PBXBuildFile; productRef = 2514B94E255DEC80009924C0 /* Down */; };
 		2514B951255DF7F6009924C0 /* DownView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2514B950255DF7F6009924C0 /* DownView.bundle */; };
 		2514B953255E264B009924C0 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2514B952255E264B009924C0 /* AboutViewController.swift */; };
+		25413FCE2576BD5C004F1287 /* HomeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25413FCD2576BD5C004F1287 /* HomeViewCell.swift */; };
 		254A9F122566F30D0027229E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254A9F112566F30D0027229E /* HomeViewController.swift */; };
 		2551BA3D2561EE51005AFDCF /* JsonHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2551BA3C2561EE51005AFDCF /* JsonHandler.swift */; };
 		2551BA3F256454EA005AFDCF /* LaunchHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2551BA3E256454EA005AFDCF /* LaunchHandler.swift */; };
@@ -23,12 +24,14 @@
 		256BE67F255CD2CB0015180B /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256BE67E255CD2CB0015180B /* Article.swift */; };
 		256BE681255CD2D70015180B /* Blog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256BE680255CD2D70015180B /* Blog.swift */; };
 		256BE689255D96630015180B /* ArchiveTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256BE688255D96630015180B /* ArchiveTableViewCell.swift */; };
+		25EAEA53256842DB00B0E668 /* BundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EAEA52256842DB00B0E668 /* BundleHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2514B8C4255DBB9C009924C0 /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
 		2514B950255DF7F6009924C0 /* DownView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DownView.bundle; sourceTree = "<group>"; };
 		2514B952255E264B009924C0 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		25413FCD2576BD5C004F1287 /* HomeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCell.swift; sourceTree = "<group>"; };
 		254A9F112566F30D0027229E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2551BA3C2561EE51005AFDCF /* JsonHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonHandler.swift; sourceTree = "<group>"; };
 		2551BA3E256454EA005AFDCF /* LaunchHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchHandler.swift; sourceTree = "<group>"; };
@@ -43,6 +46,7 @@
 		256BE67E255CD2CB0015180B /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		256BE680255CD2D70015180B /* Blog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blog.swift; sourceTree = "<group>"; };
 		256BE688255D96630015180B /* ArchiveTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveTableViewCell.swift; sourceTree = "<group>"; };
+		25EAEA52256842DB00B0E668 /* BundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				254A9F112566F30D0027229E /* HomeViewController.swift */,
+				25413FCD2576BD5C004F1287 /* HomeViewCell.swift */,
 				256BE66D255CC1880015180B /* ArchiveViewController.swift */,
 				256BE688255D96630015180B /* ArchiveTableViewCell.swift */,
 				2514B8C4255DBB9C009924C0 /* ArticleViewController.swift */,
@@ -116,6 +121,7 @@
 				256BE67D255CD2AB0015180B /* Blog */,
 				2551BA3C2561EE51005AFDCF /* JsonHandler.swift */,
 				2551BA3E256454EA005AFDCF /* LaunchHandler.swift */,
+				25EAEA52256842DB00B0E668 /* BundleHelper.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -205,6 +211,8 @@
 				2514B8C5255DBB9C009924C0 /* ArticleViewController.swift in Sources */,
 				256BE681255CD2D70015180B /* Blog.swift in Sources */,
 				256BE66A255CC1880015180B /* AppDelegate.swift in Sources */,
+				25EAEA53256842DB00B0E668 /* BundleHelper.swift in Sources */,
+				25413FCE2576BD5C004F1287 /* HomeViewCell.swift in Sources */,
 				254A9F122566F30D0027229E /* HomeViewController.swift in Sources */,
 				256BE689255D96630015180B /* ArchiveTableViewCell.swift in Sources */,
 				2514B953255E264B009924C0 /* AboutViewController.swift in Sources */,
