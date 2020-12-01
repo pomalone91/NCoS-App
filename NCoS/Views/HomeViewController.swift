@@ -17,41 +17,32 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet var tableView: UITableView!
     
     var articles = [Article]()
+    var downViews = [DownView]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Set estimated view height
+        tableView.estimatedRowHeight = 500
+        
+        // Load the bundle
+        guard let bundle = getDownBundle() else {
+            print("Unable to load bundle in cellView")
+            return
+        }
 
-        
-        
         // Get blog and articles
         let blog = Blog(string: "http://ninecirclesofshell.com/api/get-service.php")
         articles = Array(blog.articles.sorted(by: <).prefix(5))
         
-        // Set row height
-        tableView.estimatedRowHeight = tableView.rowHeight
-        tableView.rowHeight = UITableView.automaticDimension
-//        // Create a vertical stackView
-//        var stackView = UIStackView()
-//        stackView.axis = .vertical
-//        stackView.distribution = .equalSpacing
-//        stackView.alignment = .center
-//        stackView.spacing = 5
+        // Load downViews
+        for article in articles {
+            if let dv = try? DownView(frame: self.view.bounds, markdownString: article.contents, openLinksInBrowser: true, templateBundle: bundle, writableBundle: true, configuration: nil, options: .default, didLoadSuccessfully: nil) {
+                dv.reload()
+                downViews.append(dv)
+            }
+        }
         
-        
-        
-        // Loop thru first 5 articles and create downviews for them, adding each to our stackView
-//        for i in 0..<5 {
-//            let view = UIView()
-//            view.heightAnchor.constraint(equalToConstant: 100).isActive = true
-//            view.widthAnchor.constraint(equalToConstant: 120).isActive = true
-//
-//
-//            if let downView = try? DownView(frame: view.bounds, markdownString: articles[i].contents, openLinksInBrowser: true, templateBundle: bundle, writableBundle: true, configuration: nil, options: .default, didLoadSuccessfully: nil) {
-//                view.addSubview(downView)
-//                stackView.addArrangedSubview(view)
-//            }
-//        }
-//        self.view.addSubview(stackView)
     }
     
     // MARK: - Section set up
@@ -68,23 +59,23 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     // MARK: - Cell set up
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return downViews[indexPath.row].bounds.height
+    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // Make cell
         let cell = tableView.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! HomeViewCell
-        guard let bundle = getDownBundle() else {
-            print("Unable to load bundle in cellView")
-            return cell
-        }
+        
         
         // Make DownView
-        let article = articles[indexPath.row]
-        guard let downView = try? DownView(frame: cell.contentView.bounds, markdownString: article.contents, openLinksInBrowser: true, templateBundle: bundle, writableBundle: true, configuration: nil, options: .default, didLoadSuccessfully: nil) else {
-            return cell
-        }
+//        let article = articles[indexPath.row]
+//        guard let downView = try? DownView(frame: cell.contentView.bounds, markdownString: article.contents, openLinksInBrowser: true, templateBundle: bundle, writableBundle: true, configuration: nil, options: .default, didLoadSuccessfully: nil) else {
+//            return cell
+//        }
         
         // Add downView to cell
-        cell.update(with: downView)
+        cell.update(with: downViews[indexPath.row])
         
         return cell
     }

@@ -28,5 +28,9 @@ class HomeViewCell: UITableViewCell {
     func update(with downView: DownView) {
         self.addSubview(downView)
     }
+    
+    func update(with article: Article, bundle: Bundle) {
+        // TODO
+    }
 
 }
