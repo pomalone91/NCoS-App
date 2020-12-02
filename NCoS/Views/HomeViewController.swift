@@ -8,29 +8,29 @@
 
 import UIKit
 import Down
+import WebKit
 
 /**
- This will be the primary view for the tab controller. This will show the five most recently published articles. I think I can add a stack view and then programatically add downViews for each article
+ This will be the primary view for the tab contr@objc @objc oller. This will show the five most recently published articles. I think I can add a stack view and then programatically add downViews for each article
  */
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, WKNavigationDelegate {
     
     @IBOutlet var tableView: UITableView!
     
     var articles = [Article]()
     var downViews = [DownView]()
+    var bundle = Bundle()
+    var contentHeight:CGFloat = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Set estimated view height
-        tableView.estimatedRowHeight = 500
+//        tableView.estimatedRowHeight = 500
         
         // Load the bundle
-        guard let bundle = getDownBundle() else {
-            print("Unable to load bundle in cellView")
-            return
-        }
-
+        bundle = getDownBundle()!
+        
         // Get blog and articles
         let blog = Blog(string: "http://ninecirclesofshell.com/api/get-service.php")
         articles = Array(blog.articles.sorted(by: <).prefix(5))
@@ -38,7 +38,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Load downViews
         for article in articles {
             if let dv = try? DownView(frame: self.view.bounds, markdownString: article.contents, openLinksInBrowser: true, templateBundle: bundle, writableBundle: true, configuration: nil, options: .default, didLoadSuccessfully: nil) {
-                dv.reload()
+//                dv.scrollView.isScrollEnabled = false
+//                dv.scrollView.bounces = false
+                dv.navigationDelegate = self
+//                dv.webView(dv, didFinish: .none)
                 downViews.append(dv)
             }
         }
@@ -60,8 +63,18 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     // MARK: - Cell set up
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return downViews[indexPath.row].bounds.height
+        let downView = downViews[indexPath.row]
+        downView.reload()
+//        print("bounds.height: \(downView.bounds.height)")
+//        print("contentSize.height: \(downView.scrollView.contentSize.height)")
+//        return downView.bounds.height
+//        return downViews[indexPath.row].scrollView.contentSize.height
+//        webView(downView, didFinish: .some(.init()))
+//        print(contentHeight)
+        return contentHeight
+        
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // Make cell
@@ -74,11 +87,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 //            return cell
 //        }
         
+//        print(indexPath.section)
         // Add downView to cell
-        cell.update(with: downViews[indexPath.row])
+        cell.update(with: downViews[indexPath.section])
+//        cell.update(with: articles[indexPath.section], bundle: bundle)
         
         return cell
     }
+    
     
     
     /*
@@ -93,3 +109,28 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     
 }
+
+// MARK: - Extension to set webView height
+extension HomeViewController {
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        print("Content Height \(webView.scrollView.contentSize.height)");
+        let height =  webView.scrollView.contentSize.height
+        self.contentHeight = height
+        webView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: height)
+        self.tableView.reloadData()
+    }
+}
+
+//
+//extension DownView {
+//    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+//        self.webView.evaluateJavaScript("document.readyState", completionHandler: { (complete, error) in
+//            if complete != nil {
+//                self.webView.evaluateJavaScript("document.body.scrollHeight", completionHandler: { (height, error) in
+//                    self.containerHeight.constant = height as! CGFloat
+//                })
+//            }
+//
+//            })
+//    }
+//}

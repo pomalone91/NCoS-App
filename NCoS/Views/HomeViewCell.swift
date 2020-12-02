@@ -26,11 +26,14 @@ class HomeViewCell: UITableViewCell {
      Load the downview into the cell
      */
     func update(with downView: DownView) {
+//        print(downView.self)
         self.addSubview(downView)
     }
     
     func update(with article: Article, bundle: Bundle) {
-        // TODO
+        if let dv = try? DownView(frame: self.contentView.bounds, markdownString: article.contents, openLinksInBrowser: true, templateBundle: bundle, writableBundle: true, configuration: nil, options: .default, didLoadSuccessfully: nil) {
+            self.addSubview(dv)
+        }
     }
 
 }

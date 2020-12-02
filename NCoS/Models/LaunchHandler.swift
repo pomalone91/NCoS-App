@@ -44,11 +44,11 @@ struct LaunchHandler {
         
         let contents = try! fm.contentsOfDirectory(at: destination, includingPropertiesForKeys: nil, options: .includesDirectoriesPostOrder)
 //        print("----------printing document contents----------")
-        print(contents)
+//        print(contents)
         
         // Write a new "images" folder in doc directory
         let imagePath = destination.appendingPathComponent("images")
-        print(imagePath.absoluteString)
+//        print(imagePath.absoluteString)
         do {
             try fm.createDirectory(at: imagePath, withIntermediateDirectories: false, attributes: nil)
         } catch {
