@@ -38,6 +38,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Load downViews
         for article in articles {
             if let dv = try? DownView(frame: self.view.bounds, markdownString: article.contents, openLinksInBrowser: true, templateBundle: bundle, writableBundle: true, configuration: nil, options: .default, didLoadSuccessfully: nil) {
+//                print(article.title)
 //                dv.scrollView.isScrollEnabled = false
 //                dv.scrollView.bounces = false
                 dv.navigationDelegate = self
@@ -71,7 +72,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 //        return downViews[indexPath.row].scrollView.contentSize.height
 //        webView(downView, didFinish: .some(.init()))
 //        print(contentHeight)
-        return contentHeight
+        return self.contentHeight
         
     }
     
@@ -113,7 +114,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 // MARK: - Extension to set webView height
 extension HomeViewController {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        print("Content Height \(webView.scrollView.contentSize.height)");
+//        print("Content Height \(webView.scrollView.contentSize.height)");
         let height =  webView.scrollView.contentSize.height
         self.contentHeight = height - 720
         webView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: height)

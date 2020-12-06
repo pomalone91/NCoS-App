@@ -8,9 +8,11 @@
 
 import UIKit
 import Down
+import WebKit
 
 class HomeViewCell: UITableViewCell {
 
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -26,8 +28,19 @@ class HomeViewCell: UITableViewCell {
      Load the downview into the cell
      */
     func update(with downView: DownView) {
-//        print(downView.self)
+        for view in self.subviews {
+            if let dv = view as? DownView {
+                dv.removeFromSuperview()
+            }
+        }
+
         self.addSubview(downView)
+        
+        for view in self.subviews {
+            if let dv = view as? DownView {
+                dv.reload()
+            }
+        }
     }
     
     func update(with article: Article, bundle: Bundle) {
