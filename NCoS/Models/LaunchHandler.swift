@@ -42,7 +42,7 @@ struct LaunchHandler {
             try! fm.copyItem(at: bundleURL, to: destination)
         }
         
-        let contents = try! fm.contentsOfDirectory(at: destination, includingPropertiesForKeys: nil, options: .includesDirectoriesPostOrder)
+//        let contents = try! fm.contentsOfDirectory(at: destination, includingPropertiesForKeys: nil, options: .includesDirectoriesPostOrder)
 //        print("----------printing document contents----------")
 //        print(contents)
         

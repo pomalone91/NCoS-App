@@ -115,7 +115,7 @@ extension HomeViewController {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         print("Content Height \(webView.scrollView.contentSize.height)");
         let height =  webView.scrollView.contentSize.height
-        self.contentHeight = height
+        self.contentHeight = height - 720
         webView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: height)
         self.tableView.reloadData()
     }
