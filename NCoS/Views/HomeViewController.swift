@@ -72,12 +72,15 @@ extension HomeViewController {
     private func homeMarkDownString(from articles: [Article]) -> String {
         var homeString = ""
         
-        for article in articles {
-            homeString.append(contentsOf: "# \(article.title)\n")   // Add h1 header from title
-            homeString.append(contentsOf: article.contents)
-            homeString.append(contentsOf: "\n\n----\n")                   // Add horizontal rule after article
-            article.downloadImages()
+        for i in 0..<articles.count {
+            homeString.append(contentsOf: "# \(articles[i].title)\n")   // Add h1 header from title
+            homeString.append(contentsOf: articles[i].contents)
+            if i != articles.count - 1 {
+                homeString.append(contentsOf: "\n\n----\n")                   // Add horizontal rule after
+            }
+            articles[i].downloadImages()
         }
+        
         return homeString
     }
 }
