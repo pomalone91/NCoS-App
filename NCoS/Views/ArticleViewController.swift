@@ -27,7 +27,7 @@ class ArticleViewController: UIViewController {
         guard let bundle = Bundle(url: bundlePath) else{ return }
         
         if let contents = article?.contents {
-            if let articleView = try? DownView(frame: self.containerView.bounds, markdownString: contents, openLinksInBrowser: true, templateBundle: bundle, writableBundle: true, configuration: nil, options: .default, didLoadSuccessfully: nil) {//DownView(frame: self.view.bounds, markdownString: contents) {
+            if let articleView = try? DownView(frame: self.containerView.bounds, markdownString: contents, openLinksInBrowser: true, templateBundle: bundle, writableBundle: true, configuration: nil, options: .default, didLoadSuccessfully: nil) {
                 self.containerView.addSubview(articleView)
             }
         }

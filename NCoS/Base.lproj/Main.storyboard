@@ -48,6 +48,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="z2J-uz-7td">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" cyan="0.74659723043441772" magenta="0.5561065673828125" yellow="0.68080395460128784" black="0.38258393074190894" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="xBw-7b-loe" kind="relationship" relationship="rootViewController" id="6LM-Od-qXC"/>
@@ -152,6 +156,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" cyan="0.74659723040000003" magenta="0.55610656739999997" yellow="0.68080395459999998" black="0.38258393070000002" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                        <color key="selectedImageTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="2e6-6g-jIb" kind="relationship" relationship="viewControllers" id="tf8-uL-iMs"/>
@@ -195,4 +201,5 @@
         <image name="clock" catalog="system" width="64" height="60"/>
         <image name="house" catalog="system" width="64" height="54"/>
     </resources>
+    <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

@@ -17,18 +17,8 @@ class ArchiveViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // See if we can load the articles
-//        guard let url = URL(string: "http://ninecirclesofshell.com/get-service.php") else {
-//            print("Failed to create URL object")
-//            return
-//        }
-//        var blog = Blog(url: url)
         // Fetch articles for blog
         articles = blog.articles
-        
-//        for article in articles {
-//            print(article.title)
-//        }
     }
     
     // MARK: - Data Source functions
