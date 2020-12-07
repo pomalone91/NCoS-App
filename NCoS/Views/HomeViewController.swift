@@ -14,6 +14,7 @@ import WebKit
  This will be the primary view for the tab contr@objc @objc oller. This will show the five most recently published articles. I think I can add a stack view and then programatically add downViews for each article
  */
 class HomeViewController: UIViewController, WKNavigationDelegate {
+    @IBOutlet var containerView: UIView!
     
     var articles = [Article]()
     var downViews = [DownView]()
@@ -35,14 +36,14 @@ class HomeViewController: UIViewController, WKNavigationDelegate {
         
         let markdown = homeMarkDownString(from: articles)
         
-        if let dv = try? DownView(frame: self.view.bounds, markdownString: markdown, openLinksInBrowser: true, templateBundle: bundle, writableBundle: true, configuration: nil, options: .default, didLoadSuccessfully: nil) {
+        if let dv = try? DownView(frame: self.containerView.bounds, markdownString: markdown, openLinksInBrowser: true, templateBundle: bundle, writableBundle: true, configuration: nil, options: .default, didLoadSuccessfully: nil) {
 //                print(article.title)
 //                dv.scrollView.isScrollEnabled = false
 //                dv.scrollView.bounces = false
 //            dv.navigationDelegate = self
 //                dv.webView(dv, didFinish: .none)
 //            downViews.append(dv)
-            self.view.addSubview(dv)
+            self.containerView.addSubview(dv)
         }
     }
 
@@ -75,6 +76,7 @@ extension HomeViewController {
             homeString.append(contentsOf: "# \(article.title)\n")   // Add h1 header from title
             homeString.append(contentsOf: article.contents)
             homeString.append(contentsOf: "\n\n----\n")                   // Add horizontal rule after article
+            article.downloadImages()
         }
         return homeString
     }
